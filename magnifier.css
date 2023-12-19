@@ -1,0 +1,17 @@
+.img-magnifier-container {
+    position:relative;
+  margin-right: 17%;
+  margin-left: 17%;
+
+}
+
+.img-magnifier-glass {
+    position: absolute;
+  border: 3px solid lightslategray;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
+

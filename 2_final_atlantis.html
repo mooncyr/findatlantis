@@ -1,0 +1,494 @@
+﻿<!doctype html>
+<html lang="ko">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Find Atlantis</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cairo+Play:wght@600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+		<link href="css/foundation.css" rel="stylesheet" type="text/css" />
+ 		<link href="css/twentytwenty-no-compass.css" rel="stylesheet" type="text/css" />
+		<link href="css/2_atlantis.css" rel="stylesheet">
+		<link href="css/magnifier.css" rel="stylesheet">
+
+		<style>
+			*, html {
+				font-family: Tenor Sans;
+				margin:0;
+				padding:0;
+			}
+   		 </style>
+
+	<!--돋보기-->
+		<script>
+			function magnify(imgID, zoom) {
+				var img, glass, w, h, bw;
+				img = document.getElementById(imgID);
+				/*create magnifier glass:*/
+				glass = document.createElement("DIV");
+				glass.setAttribute("class", "img-magnifier-glass");
+				/*insert magnifier glass:*/
+				img.parentElement.insertBefore(glass, img);
+				/*set background properties for the magnifier glass:*/
+				glass.style.backgroundImage = "url('" + img.src + "')";
+				glass.style.backgroundRepeat = "no-repeat";
+				glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+				bw = 3;
+				w = glass.offsetWidth / 2;
+				h = glass.offsetHeight / 2;
+				/*execute a function when someone moves the magnifier glass over the image:*/
+				glass.addEventListener("mousemove", moveMagnifier);
+				img.addEventListener("mousemove", moveMagnifier);
+		
+				function moveMagnifier(e) {
+					var pos, x, y;
+					/*prevent any other actions that may occur when moving over the image*/
+					e.preventDefault();
+					/*get the cursor's x and y positions:*/
+					pos = getCursorPos(e);
+					x = pos.x;
+					y = pos.y;
+					/*prevent the magnifier glass from being positioned outside the image:*/
+					if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+					if (x < w / zoom) {x = w / zoom;}
+					if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+					if (y < h / zoom) {y = h / zoom;}
+					/*set the position of the magnifier glass:*/
+					glass.style.left = (x - w)+ "px";
+					glass.style.top = (y - h) + "px";
+					/*display what the magnifier glass "sees":*/
+					glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+				}	
+		  	
+				function getCursorPos(e) {
+					var a, x = 0, y = 0;
+					e = e || window.event;
+					/*get the x and y positions of the image:*/
+					a = img.getBoundingClientRect();
+					/*calculate the cursor's x and y coordinates, relative to the image:*/
+					x = e.pageX - a.left;
+					y = e.pageY - a.top;
+					/*consider any page scrolling:*/
+					x = x - window.pageXOffset;
+					y = y - window.pageYOffset;
+					return {x : x, y : y};
+				}  
+			}
+		</script>
+
+	</head>
+
+	<body>
+		<div class="header">
+            <div>
+                <img src="images/platon2.png" style="margin:auto; display: block; margin-top: 70px; margin-bottom: 140px;">
+            </div>
+			<h1 style="margin-bottom: 20px;">Find Atlantis</h1>
+		</div>
+
+		<div class="img-magnifier-container">
+			<img id="worldmap1" src="images/worldmap_480m_cc.png" style="width: 100%; margin: auto; display: block;" >
+		</div>
+		<script>
+			/* Initiate Magnify Function
+			with the id of the image, and the strength of the magnifier glass:*/
+			magnify("worldmap1", 3);
+		</script>
+
+        <h1> </h1>
+        <h1>.</h1>
+		<h1>.</h1>
+		<h1>.</h1>
+        <h1> </h1>
+		<h1 style="margin-top:30px;">Actually... this is EARTH...</h1>
+        <h1 style="margin-bottom:20px">with sea levels risen by 480 meters!</h1>
+		<h1>.</h1>
+		<h1>.</h1>
+		<h1>.</h1>
+        <h1> </h1>
+
+		<!--Before&After-->
+		<div class="row" style="margin-top: 2em;">
+        		<div class="twentytwenty-container" style="margin-right:17%; margin-left:17%;">
+          			<img src="images/worldmap_480m_cc_full.png" />
+          			<img src="images/worldmap_current_cc_full.png" />
+        		</div>
+    	</div>
+ 
+    	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    	<script src="js/jquery.event.move.js"></script>
+    	<script src="js/jquery.twentytwenty.js"></script>
+    	<script>
+ 			$(window).load(function(){
+      			$(".twentytwenty-container[data-orientation!='vertical']").twentytwenty({default_offset_pct: 0.7});
+
+    		});
+    	</script>
+
+		<div class="box1" style="background-color: mediumspringgreen; margin-top: 20px;">
+			<h1 class="blink">Sea levels are RISING!</h1>
+		</div>
+
+		<div class="box1" style="background-color: mediumspringgreen; margin-top: 20px;">
+			<p> Between 1901 and 2018, the global mean sea level rose by about 20 cm (or 8 inches). More precise data gathered 
+				from satellite radar measurements found a rise of 7.5 cm (3 in) from 1993 to 2017 (average of 2.9 mm/yr), accelerating 
+				to 4.62 mm/yr for the decade 2013–2022.
+            </p>
+
+			<p> Sea level rise is not uniform around the globe. Some land masses are moving up or down as a consequence of subsidence 
+				(land sinking or settling) or post-glacial rebound (land rising due to the loss of weight from ice melt). Therefore, 
+				local relative sea level rise may be higher or lower than the global average. Gravitational effects of changing ice 
+				masses also add to differences in the distribution of sea water around the globe.
+            </p>
+				
+			<p> When a glacier or an ice sheet melts, the loss of mass reduces its gravitational pull. In some places near current and 
+				former glaciers and ice sheets, this has caused local water levels to drop, even as the water levels will increase more 
+				than average further away from the ice sheet. Consequently, ice loss in Greenland has a different fingerprint on 
+				regional sea level than the equivalent loss in Antarctica. On the other hand, the Atlantic is warming at a faster pace 
+				than the Pacific. This has consequences for Europe and the U.S. East Coast, which receives a sea level rise 3–4 times 
+				the global average. The downturn of the Atlantic meridional overturning circulation (AMOC) has been also tied to extreme
+				 regional sea level rise on the US Northeast Coast.
+            </p>
+				
+			<p> Many ports, urban conglomerations, and agricultural regions are built on river deltas, where subsidence of land 
+				contributes to a substantially increased relative sea level rise. This is caused by both unsustainable extraction 
+				of groundwater and oil and gas, as well as by levees and other flood management practices preventing the accumulation 
+				of sediments which otherwise compensates for the natural settling of deltaic soils. Total human-caused subsidence in 
+				the Rhine-Meuse-Scheldt delta (Netherlands) is estimated at 3–4 m (10–13 ft), over 3 m (10 ft) in urban areas of the 
+				Mississippi River Delta (New Orleans), and over 9 m (30 ft) in the Sacramento–San Joaquin River Delta. On the other 
+				hand, post-glacial isostatic rebound causes relative sea level fall around the Hudson Bay in Canada and the northern 
+				Baltic.
+            </p>
+		</div>
+
+		<!--플로팅 이미지 나중에!<img src="images/greek relic.png" alt="greek document" style="float:left;  width:10%;">-->
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="padding:0; margin-right: 10px;">
+				<div class="collapsibleBox1" style="background-color: #0CD2FA; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Find Your Country</h2>
+                  
+                    <ul style="padding: 30px; padding-bottom:0;">
+                        <li>Carteret Islands, Papua New Guinea</li>
+                        <li>Kiribati</li>
+                        <li>The Marshall Islands</li>
+                        <li>Tuvalu</li>
+                        <li>Maldives</li>
+                        <li>Venice, Italy</li>
+                        <li>Miami, United States</li>
+                        <li>Bangladesh</li>
+                    </ul>
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: #0CD2FA; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <ul style="padding: 30px; padding-top:0">
+                        <li>India</li>
+                        <li>Vietnam</li>
+                        <li>Jakarta, Indonesia</li>
+                        <li>Lagos, Nigeria</li>
+                        <li>Houston, Texas</li>
+                        <li>Virginia Beach, Virginia</li>
+                        <li>Bangkok, Thailand</li>
+                        <li>New Orleans, Louisiana</li>
+                        <li>Rotterdam, The Netherlands</li>
+                        <li>Alexandria, Egypt</li>
+                        <li>Miami, Florida</li>
+                    </ul>
+                    <p class="blink" style="color:#FA7A0C;"><strong>If you found it, YOURS IS ABOUT TO SINK!</strong></p>
+                </div>
+            </div>
+            <div class="col" style="background-color: transparent; margin-left: 10px; margin-right: 0; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup2')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/iceberg1.png" alt="iceberg" style="display: block; margin: auto;"> 
+						<span class="popuptextR" id="myPopup2">Melting glaciers add to rising sea levels!</span>
+					</div>
+				</div>
+			</div>
+		</div>
+			
+
+		<div class="box1" style="background-color: #FA1975; margin-top: 20px;">
+			<h1>How high will it go?</h1>
+		</div>
+
+        <div class="box1" style="background-color: #FA1975; margin-top: 20px;">
+			<p>Most predictions say the warming of the planet will continue and is likely to accelerate, 
+                causing the oceans to keep rising. This means hundreds of coastal cities face 
+                flooding. But forecasting how much and how soon seas will rise remains an area of ongoing research.
+            </p>
+            <p>A special report from the Intergovernmental Panel on Climate Change says we can expect the oceans to 
+                rise between 10 and 30 inches (26 to 77 centimeters) by 2100 with temperatures warming 1.5 °C. 
+                That's enough to seriously affectections many of the cities along the U.S. East Coast. Another analysis 
+                based on NASA and European data skewed toward the higher end of that range, predicting a rise of 26 inches 
+                (65 centimeters) by the end of this century if the current trajectory continues.
+            </p>    
+            <p>If all the ice that currently exists on Earth in glaciers and sheets melted it would raise sea level by 216 feet.
+                That could cause entire states and even some countries to disappear under the waves, from Florida to Bangladesh. 
+                That's not a scenario scientists think is likely, and it would probably take many centuries, 
+                but it could eventually happen if the world keeps burning fossil fuels indiscriminately.
+            </p>    
+            <p>In the meantime, scientists keep refining their models of sea-level changes. They also point out that the
+                extent to which countries work together to limit release of more greenhouse gases may have a significant 
+                impact on how quickly seas rise, and how much.
+            </p>
+        </div>
+
+        <div class="box1" style="background-color: #FA8119; margin-top: 20px;">
+			<h1>Causes</h1>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px; display: flex;">
+            <div class="col" style="background-color:#FA8119; padding:0; margin-left: 0; margin-right: 10px;">
+				<div class="box1" style="background-color: transparent; text-align: center; margin:0; width:100%"> 
+					<h2>Thermal Expansion</h2>
+                    <p>When water heats up, it expands. About half of the sea-level rise over the past 25 years is attributable to warmer oceans simply occupying more space.</p>
+				</div>
+			</div>
+            <div class="col" style="background-color:#FA8119;padding:0; margin-left: 10px; padding:0;">
+                <div class="box1" style="background-color: transparent;text-align: center; margin:0; width:100%"> 
+					<h2>Melting Glaciers</h2>
+                    <p>Large ice formations such as mountain glaciers naturally melt a bit each summer. In the winter, snows, primarily from evaporated seawater, are generally sufficient to balance out the melting. Recently, though, persistently higher temperatures caused by global warming have led to greater-than-average summer melting as well as diminished snowfall due to later winters and earlier springs. That creates an imbalance between runoff and ocean evaporation, causing sea levels to rise.</p>
+				</div>
+			</div>	
+        </div>
+        <div class="col-container" style="margin-top: 20px; display: flex;">
+            <div class="col" style="background-color:#FA8119;margin-left: 0; margin-right: 10px; text-align: center; padding:0;">
+				<div class="box1" style="background-color: transparent;text-align: center; margin:0; width:100%"> 
+					<h2>Loss of Greenland and Antarctica's Ice Sheets</h2>
+                    <p>As with mountain glaciers, increased heat is causing the massive ice sheets that cover Greenland and Antarctica to melt more quickly. Scientists also believe that meltwater from above and seawater from below is seeping beneath Greenland's ice sheets, effectively lubricating ice streams and causing them to move more quickly into the sea. While melting in West Antarctica has drawn considerable focus from scientists, especially with the 2017 break in the Larsen C ice shelf, glaciers in East Antarctica are also showing signs of destabilizing.</p>
+				</div>
+			</div>
+            <div class="col" style="background-color:transparent; padding:0; margin-left: 10px; padding:0;">
+                <div class="box1" style="background-color: transparent; margin:0; width:100%; justify-content: center; align-items: center;"> 
+					<h2 class="blink" style="color:#FA8119; margin-top:120px;">And</h2>
+                    <h2 class="blink" style="color:#FA8119; margin-top:30px;">So</h2>
+                    <h2 class="blink" style="color:#FA8119; margin-top:30px;">Many</h2>
+                    <h2 class="blink" style="color:#FA8119; margin-top:30px; margin-bottom:90px;">!</h2>
+    
+				</div>
+			</div>	
+		</div>
+
+
+        <div class="box1" style="background-color: mediumturquoise; margin-top: 20px;">
+			<h1>Regional Impacts</h1>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="margin-left: 0; margin-right: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup1')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/africa.jpg" alt="africa" style="display: block; margin: auto;"> 
+						<span class="popuptextL" id="myPopup1">A man looking out over the beach from a building destroyed by high tides in Chorkor, a suburb of Accra. Sunny day flooding caused by sea level rise, increases coastal erosion that destroys housing, infrastructure and natural ecosystems. A number of communities in Coastal Ghana are already experiencing the changing tides.</span>
+					</div>
+				</div>
+			</div>
+            <div class="col" style="padding:0; margin-left: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Africa</h2>
+                    <p>In Africa, risk from sea level rise is amplified by the future population growth. It is believed that 54.2 million people lived 
+                        in the highly exposed low elevation coastal zones (LECZ) around 2000, but this number will effectively double to around 110 million
+                         people by 2030, and by 2060 it will be around 185 to 230 million people, depending on the extent of population growth. While 
+                         the average regional sea level rise by 2060 will be around 21 cm (with climate change scenarios making little difference at that
+                          point), local geography and population trends interact to increase the exposure to hazards like 100-year floods in a complex way. </p>
+    
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p> In the near term, some of the largest displacement is projected to occur in the East Africa region, where at least 750,000 people 
+                        are likely to be displaced from the coasts between 2020 and 2050. It was also estimated that by 2050, 12 major African cities 
+                        (Abidjan, Alexandria, Algiers, Cape Town, Casablanca, Dakar, Dar es Salaam, Durban, Lagos, Lomé, Luanda and Maputo)
+                         would collectively sustain cumulative damages of USD 65 billion for the "moderate" climate change scenario RCP4.5 and 
+                         USD 86.5 billion for the high-emission scenario RCP8.5: the version of the high-emission scenario with additional impacts 
+                         from high ice sheet instability would involve up to 137.5 billion USD in damages. Additional accounting for the "low-probability, 
+                         high-damage events" may increase aggregate risks to USD 187 billion for the "moderate" RCP4.5, USD 206 billion for RCP8.5 and USD 397 
+                         billion under the high-end instability scenario. In all of these estimates, the Egyptian city of Alexandria alone amounts for around half 
+                         of this figure: hundreds of thousands of people in its low-lying areas may already have to be relocated in the coming decade. 
+                         Across sub-Saharan Africa as a whole, damages from sea level rise could reach 2–4% of GDP by 2050, although this is strongly 
+                         affected by the extent of future economic growth and adaptation.</p>
+                </div>
+            </div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="padding:0; margin-right: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Asia</h2>
+                    <p>As of 2022, it is estimated that 63 million people in the East and South Asia are already at risk from a 100-year flood, in large part due to inadequate coastal protection in many countries. This will be greatly exacerbated in the future: Asia has the largest population at risk from sea level and Bangladesh, China, India, Indonesia, Japan, Pakistan, the Philippines, Thailand and Vietnam alone account for 70% number of people exposed to sea level rise during the 21st century. This is entirely due to the region's densely populated coasts, as the rate of sea level rise in Asia is generally similar to the global average. Exceptions include the Indo-Pacific region, where it had been around 10% faster since the 1990s, and the coast of China, where globally "extreme" sea level rise had been detected since the 1980s, and it is believed that the difference between and of global warming would have a disproportionate impact on flood frequency. 
+                        </p>
+    
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p> It is also estimated that future sea level rise along the Japanese Honshu Island would be up to 25 cm faster than the global average under RCP8.5, the intense climate change scenario. RCP8.5 is additionally associated with the loss of at least a third of the Japanese beaches and 57–72% of Thai beaches.
+
+                        One estimate finds that Asia will suffer direct economic damages of 167.6 billion USD at 0.47 meters of sea level rise, 272.3 billion USD at 1.12 meters and 338.1 billion USD at 1.75 meters (along with the indirect impact of 8.5, 24 or 15 billion USD from population displacement at those levels), with China, India, the Republic of Korea, Japan, Indonesia and Russia experiencing the largest economic losses. Out of the 20 coastal cities expected to see the highest flood losses by 2050, 13 are in Asia. For nine of those (Bangkok, Guangzhou, Ho Chi Minh City, Jakarta, Kolkata, Nagoya, Tianjin, Xiamen and Zhanjiang) sea level rise would be compounded by subsidence. By 2050, Guangzhou would see 0.2 meters of sea level rise and the estimated annual economic losses of 254 million USD - the highest in the world. One estimate calculates that in the absence of adaptation, cumulative economic losses caused by sea level rise in Guangzhou under RCP8.5 would reach ~331 billion USD by 2050, ~660 billion USD by 2070 and 1.4 trillion USD by 2100, while the impact of high-end ice sheet instability would increase these figures to ~420 billion USD, ~840 billion USD and ~1.8 trillion USD, respectively. In Shanghai, coastal inundation amounts to ~0.03% of local GDP; but would increase to 0.8% (confidence interval of 0.4–1.4%) by 2100 even under the "moderate" RCP4.5 scenario in the absence of adaptation. Likewise, failing to adapt to sea level rise in Mumbai would result in the damages of 112–162 billion USD by 2050, which would nearly triple by 2070. As the result, efforts like the Mumbai Coastal Road are being implemented, although they are likely to affect coastal ecosystems and fishing livelihoods. Nations with extensive rice production along the coasts like Bangladesh, Vietnam and China are already seeing adverse impacts from saltwater intrusion.
+                         It is estimated that sea level rise in Bangladesh may force the relocation of up to one-third of power plants as early as 2030, while a similar proportion would have to deal with the increased salinity of their cooling water by then. Research from 2010s indicates that by 2050, between 0.9 and 2.1 million people would be displaced by sea level rise alone: this would likely necessitate the creation of ~594,000 additional jobs and ~197,000 housing units in the areas receiving the displaced persons, as well as to secure the supply of additional ~783 billion calories worth of food. In 2021, another paper estimated that 816,000 would be directly displaced by sea level rise by 2050, but this would be increased to 1,3 million when the indirect effects are taken into account. Both studies assume that the majority of the displaced people would travel to the other areas of Bangladesh, and attempt to estimate population changes in different localities.
+                    
+                        In an attempt to address these challenges, the Bangladesh Delta Plan 2100 has been launched in 2018. As of 2020, it was seen falling short of most of its initial targets. The progress is being monitored.
+                        
+                        In 2019, the president of Indonesia, Joko Widodo, declared that the city of Jakarta is sinking to a degree that requires him to move the capital to another city. A study conducted between 1982 and 2010 found that some areas of Jakarta have been sinking by as much as 28 cm (11 inches) per year due to ground water drilling and the weight of its buildings, and the problem is now exacerbated by sea level rise. However, there are concerns that building in a new location will increase tropical deforestation. Other so called sinking cities, such as Bangkok or Tokyo, are vulnerable to these compounding subsidence with sea level rise.</p>
+                </div>
+            </div>
+            <div class="col" style="margin-right: 0; margin-left: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup3')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/asia.jpg" alt="asia" style="display: block; margin: auto;"> 
+						<span class="popuptextR" id="myPopup3">Matsukawaura Lagoon, located in Fukushima Prefecture of Honshu Island</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="margin-left: 0; margin-right: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup4')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/austrailia.jpg" alt="austrailia" style="display: block; margin: auto;"> 
+						<span class="popuptextL" id="myPopup4">King's Beach at Caloundra</span>
+					</div>
+				</div>
+			</div>
+            <div class="col" style="padding:0; margin-left: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Australia</h2>
+                    <p>In Australia, erosion and flooding of Queensland's Sunshine Coast beaches is projected to intensify by 60% by 2030, with severe impacts on tourism in the absence of adaptation. Adaptation costs to sea level rise under the high-emission RCP8.5 scenario are projected to be three times greater than the adaptation costs to low-emission RCP2.6 scenario. For 0.2- to 0.3-m sea level rise (set to occur by 2050), what is currently a 100-year flood would occur every year in New Zealand cities of Wellington and Christchurch. Under 0.5 m sea level rise, the current 100-year flood in Australia would be likely to occur several times a year, while in New Zealand, buildings with a collective worth of NZ$12.75 billion would become exposed to new 100-year floods. </p>
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p> A metre or so of sea level rise would threaten assets in New Zealand with a worth of NZD$25.5 billion (with a disproportionate impact on Maori-owned holdings and cultural heritage objects), and Australian assets with a worth of AUD$164–226 billion (including many unsealed roads and railway lines). The latter represents a 111% rise in Australia's inundation costs between 2020 and 2100.</p>
+                </div>
+            </div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="padding:0; margin-right: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;margin-left: 0; margin-right: 0;">
+                    <h2>Central and South America</h2>
+                    <p>By 2100, a minimum of 3-4 million people in South America would be directly affected by coastal flooding and erosion. 6% of the population of Venezuela, 56% of the population of Guyana (including in the capital, Georgetown, much of which is already below the sea level) and 68% of the population of Suriname are already living in low-lying areas exposed to sea level rise. In Brazil, the coastal ecoregion of Caatinga is responsible for 99% of its shrimp production, yet its unique conditions are threatened by a combination of sea level rise, ocean warming and ocean acidification. The port complex of Santa Catarina had been interrupted by extreme wave or wind behavior 76 times in one 6-year period in 2010s, with a 25,000-50,000 USD loss for each idle day. In Port of Santos, storm surges were three times more frequent between 2000 and 2016 than between 1928 and 1999.</p>
+			    </div>
+            </div>
+            <div class="col" style="margin-right: 0; margin-left: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup5')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/southamerica.jpg" alt="centralandsouthamerica" style="display: block; margin: auto;"> 
+						<span class="popuptextR" id="myPopup5">An aerial view of São Paulo's Port of Santos</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="margin-left: 0; margin-right: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup6')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/europe.jpg" alt="europe" style="display: block; margin: auto;"> 
+						<span class="popuptextL" id="myPopup6">Beach nourishment in progress in Barcelona</span>
+					</div>
+				</div>
+			</div>
+            <div class="col" style="padding:0; margin-left: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Europe</h2>
+                    <p>Many sandy coastlines in Europe are vulnerable to erosion caused by sea level rise. In Spain, Costa del Maresme is anticipated to retreat by 16 meters by 2050 relative to 2010, and potentially by 52 meters by 2100 under RCP8.5 Other vulnerable coastlines include Tyrrhenian Sea coast of Italy's Calabria region, Barra-Vagueira coast in Portugal and Nørlev Strand in Denmark.
+
+                        In France, it was estimated that 8,000-10,000 people would be forced to migrate away from the coasts by 2080. The Italian city of Venice is located on islands. It is highly vulnerable to flooding and has already spent $6 billion on a barrier system. A quarter of the German state of Schleswig-Holstein, inhabited by over 350,000 people, is at low elevation and has been vulnerable to flooding since the preindustrial times. Many levees already exist, but to its complex geography, a flexible mix of hard and soft measures was chosen, which is intended to support a safety margin of >1 meter rise per century. 
+                        </p>
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p> In the United Kingdom, sea level at the end of the century would increase by 53 to 115 centimeters at the mouth of river Thames and 30 to 90 centimeters at Edinburgh. To address this reality, it has divided its coast into 22 areas, each covered by a Shoreline Management Plan. Those are further sub-divided into 2000 management units in total, spanning across three "epochs" (0–20 years, 20-50 and 50–100 years).
+
+                        The Netherlands is a country that sits partially below sea level and is subsiding. It has responded by extending its Delta Works program. Drafted in 2008, the *Delta Commission* report said that the country must plan for a rise in the North Sea up to 1.3 m (4 ft 3 in) by 2100 and plan for a 2–4 m (7–13 ft) rise by 2200. It advised annual spending between €1.0 and €1.5 billion for measures such as broadening coastal dunes and strengthening sea and river dikes. Worst-case evacuation plans were also drawn up.</p>
+                </div>
+            </div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="padding:0; margin-right: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>North America</h2>
+                    <p>As of 2017, around 95 million Americans lived on the coast: for Canada and Mexico, this figure amounts to 6.5 million and 19 million people. Increased chronic nuisance flooding and king tide flooding is already an issue in the highly vulnerable state of Florida, as well as alongside the US East Coast. On average, the number of days with tidal flooding in the USA increased 2 times in the years 2000-2020, reaching 3–7 days per year. In some areas the increase was much stronger: 4 times in the Southeast Atlantic and 11 times in the Western Gulf. By the year 2030 the average number is expected to be 7–15 days, reaching 25–75 days by 2050. U.S. coastal cities have responded to that through beach nourishment or beach replenishment, where mined sand is trucked in and added, in addition to other adaptation measures such as zoning, restrictions on state funding, and building code standards. 
+                        </p>
+    
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p>Along an estimated 15% of the US coastline, the majority of local groundwater levels are already below the sea level. This places those groundwater reservoirs at risk of sea water intrusion, which renders fresh water unusable once its concentration exceeds 2-3%. The damages are also widespread in Canada and will affect both major cities like Halifax and the more remote locations like Lennox Island, whose Mi'kmaq community is already considering relocation due to widespread coastal erosion. In Mexico, the damages from SLR to tourism hotspots like Cancun, Isla Mujeres, Playa del Carmen, Puerto Morelos and Cozumel could amount to 1.4–2.3 billion USD. The increase in storm surge due to sea level rise is also a problem. For example, due to this effect Hurricane Sandy caused additional 8 billion dollars in damage, impacted 36,000 more houses and 71,000 more people.
+
+                        In the future, northern Gulf of Mexico, Atlantic Canada and the Pacific coast of Mexico would experience the greatest sea level rise. By 2030, flooding along the US Gulf Coast could cause economic losses of up to 176 billion USD: around 50 billion USD may be avoided through nature-based solutions like wetland restoration and oyster reef restoration. By 2050, the frequency of coastal flooding in the US is expected to rise tenfold to four "moderate" flooding events per year, even without storms or heavy rainfall. In the New York City, current 100-year flood would occur once in 19–68 years by 2050 and 4–60 years by 2080. By 2050, 20 million people in the greater New York City area would be threatened, as 40% of the existing water treatment facilities would be compromised and 60% of power plants will need to be relocated. By 2100, sea level rise of 0.9 m (3 ft) and 1.8 m (6 ft) would threaten 4.2 and 13.1 million people in the US, respectively. In California alone, 2 m (6+1⁄2 ft) of SLR could affect 600,000 people and threaten over 150 billion USD in property with inundation, potentially representing over 6% of the state's GDP. In North Carolina, a meter of SLR inundates 42% of the Albemarle-Pamlico Peninsula, costing up to 14 billion USD (at 2016 value of the currency). In nine southeast US states, the same level of sea level rise would claim up to 13,000 historical and archaeological sites, including over 1000 sites eligible for inclusion in the National Register for Historic Places.</p>
+                </div>
+            </div>
+            <div class="col" style="margin-right: 0; margin-left: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup7')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/northamerica.jpg" alt="northamerica" style="display: block; margin: auto;"> 
+						<span class="popuptextR" id="myPopup7">Tidal flooding in Miami during a king tide (October 17, 2016). The risk of tidal flooding increases with sea level rise.</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <div class="col-container" style="margin-top: 20px;">
+            <div class="col" style="margin-left: 0; margin-right: 10px; text-align: center;">
+				<div class="popup" onclick="togglePopup('myPopup8')" style="text-align: center;"> 
+					<div style="display: inline-block;"> 
+						<img src="images/islandnations.jpg" alt="islandnations" style="display: block; margin: auto;"> 
+						<span class="popuptextL" id="myPopup8">Malé, the capital island of Maldives</span>
+					</div>
+				</div>
+			</div>
+            <div class="col" style="padding:0; margin-left: 10px;">
+				<div class="collapsibleBox1" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-bottom: 0px;">
+                    <h2>Island Nations</h2>
+                    <p>Small island states are nations whose populations are concentrated on atolls and other low islands. Atolls on average reach 0.9–1.8 m (3–6 ft) above sea level. This means that no other place is more vulnerable to coastal erosion, flooding and salt intrusion into soils and freshwater caused by sea level rise. The latter may render an island uninhabitable well before it is completely flooded. Already, children in small island states are encountering hampered access to food and water and are suffering an increased rate of mental and social disorders due to these stressors. At current rates, sea level would be high enough to make the Maldives uninhabitable by 2100, while five of the Solomon Islands have already disappeared due to the combined effects of sea level rise and stronger trade winds that were pushing water into the Western Pacific.</p>
+                    <p style="padding-bottom:0;"><strong>Check More!</strong></p>	
+			    </div>
+                <div class="content" style="background-color: mediumturquoise; margin-left: 0; margin-right: 0; padding-top: 0; padding-left: 30px; padding-right: 30px;">
+                    <p style="padding-top: 8px;"></p>
+                    <p>Adaptation to sea level rise is costly for small island nations as a large portion of their population lives in areas that are at risk. Nations like Maldives, Kiribati and Tuvalu are already forced to consider controlled international migration of their population in response to rising seas, since the alternative of uncontrolled migration threatens to exacerbate the humanitarian crisis of climate refugees. In 2014, Kiribati had purchased 20 square kilometers of land (about 2.5% of Kiribati's current area) on the Fijian island of Vanua Levu to relocate its population there once their own islands are lost to the sea.</p>
+                    </div>
+            </div>
+		</div>
+
+        <div class="box1" style="background-color: transparent; margin-top: 20px;">
+			<img src="images/sinking_nyc.gif" alt="singkingny" style="display: block; margin: auto;">
+		</div>
+
+      
+
+
+	<script>
+		function togglePopup(popupId) {
+			var popup = document.getElementById(popupId);
+			popup.classList.toggle("show");
+		}
+	</script>
+		  
+	<script>
+		var coll = document.getElementsByClassName("collapsibleBox1");
+		var i;
+			
+		for (i = 0; i < coll.length; i++) {
+			coll[i].addEventListener("click", function() {
+				this.classList.toggle("active");
+				var content = this.nextElementSibling;
+				if (content.style.maxHeight){
+				  content.style.maxHeight = null;
+				} else {
+				  content.style.maxHeight = content.scrollHeight + "px";
+				} 
+			});
+		}
+	</script>
+		
+	</body>
+</html>

@@ -1,0 +1,187 @@
+.multi-layout {            
+    column-count: 2;            
+    column-gap: 20px;            
+    column-width: 2px;   
+    margin-right: 17%;
+    margin-left: 17%;     
+}
+
+.col-container {
+    margin-top: 20px;
+    display: flex;
+    width: 68%;
+    margin: 0 auto;
+}
+  
+.col {
+    /**width**/
+    width:50%;
+    border-radius: 30px;
+    padding: 30px;
+    /**min-width:0;**/
+    box-sizing: border-box;
+}
+
+.header{
+    font-family: Tenor Sans;
+    padding-top: 100px;
+    padding-bottom: 50px;
+    margin-right: 21%;
+    margin-left: 21%;
+    text-align: center;
+    font-size: 3em;
+}
+
+.box1{
+    border-radius: 30px;
+    background-color: mediumslateblue;
+    padding: 30px;
+    /**margin-right: 17%;
+    margin-left: 17%;**/
+    margin: 0 auto;
+    width: 68%
+}
+
+.collapsibleBox1 {
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    background-color: mediumslateblue;
+    padding: 30px;
+    /**margin-right: 21%;
+    margin-left: 21%; **/
+    cursor: pointer;
+}
+
+.collapsibleBox1:hover {
+    background-color: lightblue; /* 변경할 색상 */
+}
+
+.content {
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    background-color: mediumslateblue;
+    padding: 30px;
+    margin-right: 21%;
+    margin-left: 21%;
+    cursor: pointer;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+h1{
+    text-align: center;
+    margin-right: 21%;
+    margin-left: 21%;
+}
+
+h2{
+    text-align: center;
+}
+
+p{
+    text-align: justify;
+    padding: 20px;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptextR {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 12px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 100%;
+    transform: translate(15%, -50%);
+}
+
+/* Popup arrow */
+.popup .popuptextR::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 160px;
+    margin-left: -5px;
+    margin-top: -5px;;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    transform: rotate(90deg);
+}
+
+.popup .popuptextL {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 12px;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    right: 100%;
+    transform: translate(-120%, -50%);
+    left: 10px;
+}
+
+/* Popup arrow */
+.popup .popuptextL::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 164px;
+    margin-left: -5px;
+    margin-top: -5px;;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    transform: rotate(-90deg);
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+/* text blank */
+@keyframes blink-effect {
+    50% {
+        color:white;
+        /* opacity: 0; */
+      
+    }
+}
+  
+.blink {
+    animation: blink-effect 1s step-end infinite;
+}
